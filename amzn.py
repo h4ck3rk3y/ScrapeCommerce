@@ -1,9 +1,7 @@
-import sqlalchemy
 import re
 import sys
 import requests
 import cookielib
-import urllib
 import socket
 from struct import *
 socket.setdefaulttimeout(10000)
@@ -50,11 +48,11 @@ def visitPhones(phone_url, phone_id):
 	else:
 		return False
 
-def action():
+def action(brand, keyword):
 	phone_list = []
 	phone_id = []
 	for x in xrange(1,1000):
-		url = 'http://www.amazon.in/s/ref=sr_pg_'+str(x)+'?fst=as%3Aoff&rh=n%3A976419031%2Cn%3A1389401031%2Cn%3A1389432031%2Cn%3A1805560031%2Ck%3Asamsung%2Cp_89%3ASamsung&page=2&keywords=samsung&ie=UTF8&qid=1430076551'
+		url = 'http://www.amazon.in/s/ref=sr_pg_'+str(x)+'?fst=as%3Aoff&rh=n%3A976419031%2Cn%3A1389401031%2Cn%3A1389432031%2Cn%3A1805560031%2Ck%3A'+keyword+'%2Cp_89%3A'+brand+'&page=2&keywords='+keyword+'&ie=UTF8&qid=1430076551'
 		headers = {
 	    'User-Agent': 'Mozilla/5.0'
 	    }	
@@ -72,5 +70,6 @@ def action():
 			print 'Done!/Bad connectivity!'
 
 def amazon():
-	action()
-action()	
+	brand = raw_input('Enter brand name\n')
+	keyword =raw_input('Enter Keyword\n')
+	action(brand, keyword)

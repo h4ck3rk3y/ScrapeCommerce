@@ -18,7 +18,7 @@ def banner():
 	print "Press 4 for Ebay"
 
 def main():
-	choice = int(raw_input(': '))
+	choice = int(raw_input(''))
 	if choice == 1 :
 		amazon()
 	elif choice == 2:

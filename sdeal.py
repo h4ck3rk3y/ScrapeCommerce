@@ -1,4 +1,3 @@
-import sqlalchemy
 import re
 import sys
 import requests
@@ -41,7 +40,6 @@ def action(brand, keyword, resources):
 			for x in table:
 				output = [
 				x['highlights'],
-				x['id'],
 				x['name'],
 				x['avgRating'],
 				x['noOfReviews'],

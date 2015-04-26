@@ -1,4 +1,3 @@
-import sqlalchemy
 import re
 import sys
 import requests
@@ -52,7 +51,7 @@ def action(brand, keyword):
 	phone_list = []
 	id_list = []
 	for x in xrange(0, 1000, 20) :
-		time.sleep(10)
+		time.sleep(5)
 		url = 'http://www.flipkart.com/lc/pr/pv1/spotList1/spot1/productList?p%5B%5D=facets.brand%255B%255D%3D'+brand+'&sid=tyy%2C4io&filterNone=true&start='+str(x)+'&q='+keyword+'&ajax=true&_=1430059919471'
 		p = re.compile(ur'<a class="fk-display-block" data-tracking-id="prd_title" href="(.*)" title=".*">')
 		response = requests.get(url)
