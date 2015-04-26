@@ -1,7 +1,6 @@
 import re
 import sys
 import requests
-import cookielib
 import socket
 import json
 from struct import *

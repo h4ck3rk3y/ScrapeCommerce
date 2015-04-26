@@ -1,7 +1,6 @@
 import re
 import sys
 import requests
-import cookielib
 import socket
 from struct import *
 socket.setdefaulttimeout(10000)

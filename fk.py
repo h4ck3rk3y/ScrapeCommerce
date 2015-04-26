@@ -1,8 +1,6 @@
 import re
 import sys
 import requests
-import cookielib
-import urllib
 import time
 import socket
 from struct import *

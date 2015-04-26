@@ -1,8 +1,6 @@
 import re
 import sys
 import requests
-import cookielib
-import urllib
 import socket
 from struct import *
 from fuzzywuzzy import fuzz
