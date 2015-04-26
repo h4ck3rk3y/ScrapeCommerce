@@ -24,3 +24,5 @@ The following pythonic libraries are required for things to run.
 
 ## TODO
   Include a similar list of all posible brands as in sdeal.py in all others
+  Include sql alchemy to store data.
+  Beautify and show data.
