@@ -2,10 +2,11 @@
 
 This repository contains code to scrape data about phones from following popular e-Commerce sites in India
   * Flipkart
-  * Ebay
+  * Ebay.in
   * Snapdeal
-  * Amazon
-Mostly out of interest. Partly done to solve the `Amicus Challenge`.
+  * Amazon.in
+
+Mostly out of interest.Partly done to solve the `Amicus Challenge`.
 
 ## How to Use?
   Just rain main.py and do as said.
