@@ -9,18 +9,25 @@ from struct import *
 socket.setdefaulttimeout(10000)
 reload(sys)
 sys.setdefaultencoding("utf-8")
+
 def warranty(table):
 	for data in table:
-		if (data.lower()).find('warranty'):
+		if (data.lower()).find('warranty')!=-1:
 			return True
 	return False
 def getWarranty(url):
-	url = 'http://www.snapdeal.com' + url
+	url = 'http://www.snapdeal.com/' + url
 	headers = {
-    'User-Agent': 'Mozilla/5.0'
-    }
-    response = requests.get(url,headers=headers)
-def action(brand, keyword):
+	'User-Agent': 'Mozilla/5.0'
+	}
+	p = re.compile('<div class="prod-warranty-text">(.*)</div>')
+	response = requests.get(url,headers = headers)
+	if response.status_code == 200:
+		match = re.search(p, response.text)
+		if match:
+			return match.group(1) 
+	return 'No Information Available'		
+def action(brand, keyword, resources):
 	result = []
 	ids = []
 	for starting_at in xrange(0,10000,49):
@@ -46,7 +53,7 @@ def action(brand, keyword):
 			 		result.append(output)
 					if warranty(x['highlights']) :
 						output.append(warranty)
-					else:
+					elif resources == 'y':
 						output.append(getWarranty(x['pageUrl']))	
 					if 'displayPrice' in x.keys():
 						output.append(x['displayPrice'])
@@ -65,5 +72,6 @@ def snapdeal():
 		print brand.strip()
 	brand = raw_input("Enter Brand Name From List Above:\n")
 	keyword = raw_input("Enter KeyWord:\n")
+	resources = raw_input("Do you want to query individual pages if warranty information is not available?[y/n]:\n")
 	print 'Begining Search'
-	action(brand,keyword)
+	action(brand,keyword, resources)

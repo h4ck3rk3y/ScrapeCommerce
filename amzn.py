@@ -13,8 +13,7 @@ sys.setdefaultencoding("utf-8")
 def visitPhones(page):
 	pass
 
-def amazon(url, i):
-	print "Visiting ", str(i)
+def action(url):
 	print url
 	p = re.compile(ur'class="pagnNext"\n*\s* href="(.*)">\n?\s*<span id="pagnNextString')
 	headers = {
@@ -35,3 +34,8 @@ def amazon(url, i):
 			print "done!"		
 	else :
 		print 'are u connected?'
+
+def amazon():
+	print 'Enter Url'
+	url = raw_input()
+	action(url)
