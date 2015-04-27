@@ -8,9 +8,14 @@ socket.setdefaulttimeout(10000)
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
+headers = {
+	'User-Agent': 'Mozilla/5.0'
+	}
+
 def visitPhone(url, id_list):
 	url = "http://flipkart.com" + url
-	response = requests.get(url)
+	time.sleep(2)
+	response = requests.get(url, headers=headers)
 	output = []
 	if response.status_code == 200:
 		ids   = re.search("'identifier' : \"(.*)\"", response.text)
@@ -52,7 +57,7 @@ def action(brand, keyword):
 		time.sleep(5)
 		url = 'http://www.flipkart.com/lc/pr/pv1/spotList1/spot1/productList?p%5B%5D=facets.brand%255B%255D%3D'+brand+'&sid=tyy%2C4io&filterNone=true&start='+str(x)+'&q='+keyword+'&ajax=true&_=1430059919471'
 		p = re.compile(ur'<a class="fk-display-block" data-tracking-id="prd_title" href="(.*)" title=".*">')
-		response = requests.get(url)
+		response = requests.get(url, headers=headers)
 		if response.status_code == 200 :
 			if (response.text).find("No matching products available")!=-1:
 				break

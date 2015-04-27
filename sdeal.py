@@ -47,7 +47,6 @@ def action(brand, keyword, resources):
 				]
 				if x['id'] not in ids :
 			 		ids.append(x['id'])
-			 		result.append(output)
 					if warranty(x['highlights']) :
 						output.append(warranty)
 					elif resources == 'y':
@@ -58,6 +57,8 @@ def action(brand, keyword, resources):
 						output.append(x['price'])
 					else :
 						output.append("No Price Data")
+			 		result.append(output)
+			 		print output	
 		else :
 			print 'Not being able to reach snapdeal'
 			break

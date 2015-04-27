@@ -73,6 +73,7 @@ def action(brand, keyword):
 			return False
 		rcnt = int(rcnt.replace(',',''))
 		for x in xrange(1,int(rcnt/200.0)):
+			print 'On Page ' + str(x) + ' of Results, processing 200 phones.'
 			url = 'http://www.ebay.in/sch/Mobile-Phones-/15032/i.html?_from=R40&LH_AllListings=1&Brand='+brand+'&_sop=12&_nkw='+keyword+'&_pgn='+str(x)+'&_skc=200&rt=nc'
 			response = requests.get(url, headers=headers)
 			if response.status_code == 200:

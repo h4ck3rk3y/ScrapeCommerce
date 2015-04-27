@@ -17,14 +17,14 @@ def visitPhones(phone_url, phone_id):
 		name = re.search('<span id="productTitle" class="a-size-large">(.*)</span>', response.text)
 		picture = re.search('" data-old-hires="(.*)"  class=', response.text)
 		desc = re.findall('<li><span class="a-list-item"> (.*)<\/span>', response.text)
-		price = re.search(' <span class="a-size-mini"> <span class="currencyINR">&nbsp;&nbsp;</span>(.*)</span>', response.text)
 		rating = re.search('class="reviewCountTextLinkedHistogram noUnderline" title="(\d*\.?\d*) out of 5 stars">', response.text)
+		price = re.search('<span class="currencyINR">&nbsp;&nbsp;<\/span> (.*)<\/span><\/span>', response.text)
 		warranty = re.search('Warranty Details:<\/strong> (.*)\W*<\/span>', response.text)
 		asin = re.search('asin=([A-Z0-9]*)&quot;',response.text)
 		if asin.group(1) in phone_id :
 			return False
 		else :
-			phone_id.append(asin.group(1))		
+			phone_id.append(asin.group(1))
 		if name and price and picture:
 			result.append(name.group(1))
 			result.append(picture.group(1))
