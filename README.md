@@ -10,6 +10,8 @@ Mostly out of interest.Partly done to solve the `Amicus Challenge`.
 
 ## How to Use?
   Just rain main.py and do as said.
+  For Brand : try `Samsung`
+  For keyword : try `samsung`
 
 ## Requriements
   
@@ -23,6 +25,9 @@ The following pythonic libraries are required for things to run.
   * sys
 
 ## TODO
-  Include a similar list of all posible brands as in sdeal.py in all others
-  Include sql alchemy to store data.
-  Beautify and show data.
+ * Beautify and output data.
+ * Show a list of popular brands to choose from as done in Snapdeals scraper.
+ * Use SQL alchemy to store data.
+ * Convert into an unoficial API.
+ * Use scrapy.
+ 
